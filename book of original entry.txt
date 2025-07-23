@@ -1,0 +1,5 @@
+|  PRODUCT NAME   |  AMOUNT  |  CATEGORY  |  PRICE  |  TOTAL AMOUNT  |
+|     Amul        |   1kg    |    Milk    |   ₹40   |       ₹40      |
+|   Toothpaste    |   1kg    |   dabur    |   ₹20   |       ₹20      |
+|     Bread       |   1kg    |    365     |  ₹150   |      ₹150      |
+|      Sev        |   1kg    |   namkeen  |   ₹60   |       ₹60      |
