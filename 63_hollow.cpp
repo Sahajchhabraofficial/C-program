@@ -1,5 +1,6 @@
 //wap to make a hollow square.
-/* * * * * *
+/* 
+   * * * * *
    *       *
    *       *
    *       *
