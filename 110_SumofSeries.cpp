@@ -3,20 +3,17 @@
 using namespace std;
 int main()
 {
-    int i,n,sum=1;
+    int i,n,sum=0,num=1,b=10;
     cout<<"enter a number: ";
     cin>>n;
     for(i=1;i<=n;i++)
     {
-        if(i==1)
-        {
-            continue;
-        }
-        else{
-            sum=sum+sum*10+1;
-        }
+       cout<<num<<" ";
+       sum=sum+num;
+       num=num+b;
+       b=b*10;
     }
-    cout<<"sum of series from 1 to "<<n<<" is: "<<sum;
+    cout<<"sum of series =  "<<sum;
 
     return 0;
 }
