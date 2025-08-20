@@ -3,21 +3,18 @@
 using namespace std;
 int main()
 {
-    int i,n,sum=9;
+    int i,n,sum=0,b=90,num=9;
     cout<<"enter a number: ";
     cin>>n;
     for(i=1;i<=n;i++)
     {
-        if(i==1)
-        {
-            continue;
-        }
-        else{
-            sum=sum+sum*10+9;
-        }
-        // cout<<sum<<endl;
+        cout<<num<<" ";
+        sum=sum+num;
+        num=num+b;
+        b=b*10;
     }
-    cout<<"sum of series from 1 to "<<n<<" is: "<<sum;
+    cout<<endl;
+    cout<<"sum of series is: "<<sum;
 
     return 0;
 }

@@ -13,6 +13,7 @@ int main()
        num=num+b;
        b=b*10;
     }
+    cout<<endl;
     cout<<"sum of series =  "<<sum;
 
     return 0;
