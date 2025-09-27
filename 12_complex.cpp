@@ -23,7 +23,7 @@ public:
     {
         complex result;
         result.imaginary=imaginary+object.imaginary;
-        result.real==real+object.real;
+        result.real=real+object.real;
         return result;
 
     }
@@ -31,7 +31,7 @@ public:
     {
         complex result;
         result.imaginary=imaginary-object.imaginary;
-        result.real==real-object.real;
+        result.real=real-object.real;
         return result;
     }
 };
