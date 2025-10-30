@@ -1,5 +1,4 @@
 //wap to clone Book my show app features.
-//ADDING PAYMENT SYSTEM IS REMAINING...
 #include<iostream>
 using namespace std;
 class Recent_Shows
@@ -44,6 +43,27 @@ public:
         available_seats=0;
         cout<<"Show deleted!"<<endl;;
     }
+    void Book_shows(int no_seats)
+    {
+        available_seats-=no_seats;
+    }
+    void Payment(int members)
+    {
+        pay_again:
+        int total;
+        int cash;
+        total=Ticket_price*members;
+        cout<<"Please pay Rs."<<total<<": ";
+        cin>>cash;
+        if(cash<total)
+        {
+            cout<<"Insufficient amount!"<<endl;
+            goto pay_again;
+        }
+        else{
+            cout<<"Payment successfull!"<<endl;
+        }
+    }
 };
 int main()
 {
@@ -54,22 +74,49 @@ int main()
     cout<<"!You have find perfect place to book your show!"<<endl;
     cout<<"Would you like to?"<<endl;
     cout<<"1.Book a selected show"<<endl;
-    cout<<"2.See your ticket"<<endl;
-    cout<<"3.Checkout Recent shows"<<endl;
+    cout<<"2.Checkout Recent shows"<<endl;
+    cout<<"3.Exit"<<endl;
     cout<<"->";
     cin>>choice;
     if(choice=="Book")
     {
-        /*code*/
+        book:
+        int people;
+        string name_of_show;
+        cout<<"enter the name of show: ";
+        cin>>name_of_show;
+        cout<<"For how many people?";
+        cin>>people;
+        if(name_of_show=="Kantara")
+        {
+            show1.Book_shows(people);
+            show1.Payment(people);
+        }
+        else if(name_of_show=="War2")
+        {
+            show2.Book_shows(people);
+            show2.Payment(people);
+        }
+        else if(name_of_show=="Coolie")
+        {
+            show3.Book_shows(people);
+            show3.Payment(people);
+        }
+        else{
+            cout<<"Sorry show not available!"<<endl;
+            goto book;
+        }
+        cout<<"        !!Congratulations!!"<<endl;
+        cout<<"========your show is booked========";
     }
-    else if(choice=="Ticket")
+    else if(choice=="Exit")
     {
-        /*code*/
+        exit(0);
     }
     else if(choice=="staff")
     {
         string ch;
-        cout<<"Add shows or delete shows?";
+        cout<<"add shows or delete shows?";
         cin>>ch;
         if(ch=="add")
         {
@@ -103,19 +150,17 @@ int main()
     }
     else if(choice=="Checkout")
     {
-        int show;
         show1.display_shows();
         show2.display_shows();
         show3.display_shows();
         show4.display_shows();
         show5.display_shows();
-        cout<<"Which show do you want to book?";
-        cin>>show;
+        goto book;
         cout<<"        !!Congratulations!!"<<endl;
         cout<<"========your show is booked========";
     }
     else{
-        cout<<"Feature not available!";
+        cout<<"Feature not available!"<<endl;
         goto start;
     }
 
