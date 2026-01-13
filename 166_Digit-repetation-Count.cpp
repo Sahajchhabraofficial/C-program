@@ -1,5 +1,5 @@
 //Write a program that takes a number and a single digit as input, and counts how many times the digit appears in the given number.
-#include<iostream>
+#include <iostream>
 using namespace std;
 int main()
 {
