@@ -7,9 +7,9 @@ label.pack()
 root.geometry("500x400")
 def clicked():
     age_text=int(entry.get())
-    if age_text>=18:
+    if age_text>=18 and age_text<=50:
         print("Jawan ho gaya tu pappe")
-    elif age_text>=50:
+    elif age_text>=50 and age_text>=18:
         print("Buddhe! itna bhi nahi pata")
     else:
         print("Baccha hai tu abhi")
