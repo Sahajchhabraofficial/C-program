@@ -1,0 +1,23 @@
+from tkinter import *
+root=Tk()
+root.geometry("400x400")
+root.minsize(400,400)
+root.title("BMI Calculator")
+def calculate():
+    Height=float(height.get())
+    Weight=int(weight.get())
+    BMI=Weight//(Height**2)
+    print(BMI)
+frame=Frame(root,borderwidth=5,relief="ridge",bg="grey")
+frame.pack(fill="x")
+Label(frame,text="want to know your body's nourishment?",font="Helvatica 14",fg="black").grid(row=1,column=3)
+Label(frame,text="Welcome! you come at the right place",font="AgencyFB 16 bold",fg="black").grid(row=2,column=3)
+height=Entry(frame,width=20)
+height.grid(row=5,column=3,pady=3)
+weight=Entry(frame,width=20)
+weight.grid(row=7,column=3,pady=3)
+Label(frame,text="enter your height (in meters):",font="Arial 13").grid(row=4,column=3,pady=4)
+Label(frame,text="Enter your weight (in kgs): ",font="Arial 13").grid(row=6,column=3,pady=4)
+Button(frame,text="Submit",font="Arial 10 bold",command=calculate).grid(row=8,column=3,pady=4)
+
+root.mainloop()
