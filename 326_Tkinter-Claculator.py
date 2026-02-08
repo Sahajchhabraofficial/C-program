@@ -1,0 +1,21 @@
+from tkinter import *
+root=Tk()
+root.geometry("400x600")
+root.minsize(400,600)
+root.title("Calculator")
+Allbtns=Frame(root,borderwidth=5,relief="raised",bg="grey")
+Allbtns.grid(row=2,column=1,columnspan=3)
+entry=Entry(root,width=15,font="Helvatica 45 bold")
+entry.grid(row=1,column=1)
+Button(Allbtns,text="1",font="Arial 20 bold").grid(row=2,column=1)
+Button(Allbtns,text="2",font="Arial 20 bold").grid(row=2,column=2)
+Button(Allbtns,text="3",font="Arial 20 bold").grid(row=2,column=3)
+Button(Allbtns,text="4",font="Arial 20 bold").grid(row=3,column=1)
+Button(Allbtns,text="5",font="Arial 20 bold").grid(row=3,column=2)
+Button(Allbtns,text="6",font="Arial 20 bold").grid(row=3,column=3)
+Button(Allbtns,text="7",font="Arial 20 bold").grid(row=4,column=1)
+Button(Allbtns,text="8",font="Arial 20 bold").grid(row=4,column=2)
+Button(Allbtns,text="9",font="Arial 20 bold").grid(row=4,column=3)
+
+root.mainloop()
+#it will continue tommorow because i have to go now.
