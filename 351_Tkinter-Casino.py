@@ -8,7 +8,7 @@ self.title("Tkinter Casino")
 self.geometry("1920x1080")
 self.minsize(600,400)
 
-def get_started():
+def game_selection():
     start=Toplevel()  # Changed from Tk() to Toplevel()
     start.title("Game selection")
     start.geometry("1920x1080")
@@ -17,7 +17,7 @@ def get_started():
     start_f2=Frame(start,bg="white",relief="groove")
     start_f2.pack(pady=4)
     def start_game():
-        start_game=Tk()
+        start_game=Toplevel()
         start_game.title("Jackpot 777")
         start_game.geometry("1920x1080")
         Label(start_game,text="What is your account balance?",font=("Agency FB",20,"bold"),bg="white").pack(pady=5)
@@ -89,7 +89,7 @@ def get_started():
                         break
                 else:
                     Balance-=Bet
-                    tmsg.showinfo("!!Spinning!!")
+                    tmsg.showinfo("Status","!!Spinning!!")
                     num1=random.randint(1,10)
                     num2=random.randint(1,10)
                     num3=random.randint(1,10)
@@ -117,7 +117,7 @@ Label(frame,
       fg="grey",
       bg="white"
       ).pack(pady=5,padx=5)
-Button(frame,text="Get Started",font="Roboto 10 bold",height=1,bg="white",command=get_started).pack(pady=5,ipady=5,ipadx=5,padx=5)
+Button(frame,text="Get Started",font="Roboto 10 bold",height=1,bg="white",command=game_selection).pack(pady=5,ipady=5,ipadx=5,padx=5)
 
 self.mainloop()
 #Ahh! This is hitting a extreme error, better see it tommorow!
