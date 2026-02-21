@@ -71,7 +71,7 @@ get_started = customtkinter.CTkButton(
     border_width=2,
     border_color="black",
     fg_color="#FFFFFF",
-    hover_color="#aa6100"
+    hover_color="#6b3a2a"
 )
 canvas.create_window(300, 340, window=get_started)
 
