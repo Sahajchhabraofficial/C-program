@@ -11,7 +11,7 @@ class Swaadly(customtkinter.CTk):
 
         self._create_menu()
 
-    # ---- callbacks ----
+    # ---- Menubar callbacks ----
     def products(self):
         print("Products clicked")
 
@@ -25,9 +25,21 @@ class Swaadly(customtkinter.CTk):
     def _create_menu(self):
         menubar_frame = customtkinter.CTkFrame(self,bg_color="white",fg_color="white",border_width=0)
         menubar_frame.pack(side=TOP, fill=X, padx=8, pady=5)
-        products=["Chocolate crunchy","Creamy Chocolate","Classic Original"]
+        products=["Our products ","Chocolate crunchy","Creamy Chocolate","Classic Original"]
 
-        products_btn = customtkinter.CTkOptionMenu(menubar_frame,values=products,command=self.products, width=100,bg_color="white",fg_color="white",text_color="#FB9851",height=35,dropdown_fg_color="white",dropdown_text_color="#FB9851",dropdown_hover_color="#F5D3BB",button_color="white",button_hover_color="white")
+        products_btn = customtkinter.CTkOptionMenu(menubar_frame,
+                                                   values=products,
+                                                   command=lambda:self.products, 
+                                                   width=100,
+                                                   bg_color="white",
+                                                   fg_color="white",
+                                                   text_color="#FB9851",
+                                                   height=35,
+                                                   dropdown_fg_color="white",
+                                                   dropdown_text_color="#FB9851",
+                                                   dropdown_hover_color="#F5D3BB",
+                                                   button_color="white",
+                                                   button_hover_color="white")
         products_btn.pack(side=LEFT, padx=5)
 
         aboutus_btn = customtkinter.CTkButton(menubar_frame, text="About us", command=self.aboutus, width=100,hover_color="white",bg_color="white",fg_color="white",text_color="#FB9851",height=35)
@@ -37,7 +49,8 @@ class Swaadly(customtkinter.CTk):
         faq_btn.pack(side=LEFT, padx=5)
     def Homepage(self):
         frame=Frame(self,borderwidth=1)
-        heading=Label(frame,text="Real Peanut Butter",font="Arial 16 bold")
+        heading_font=customtkinter.CTkFont(family="Cooper Black",weight="bold",size=27)
+        heading=Label(frame,text="Real Peanut Butter",font=heading_font)
         subheading=Label(frame,text="Made from premium peanuts. Slow roasted. Stone ground.",font="Arial 13")
         subheading2=Label(frame,text="No palm oil. No preservatives",font="Arial 13")
         frame.pack(expand=True,fill=BOTH)
