@@ -67,6 +67,13 @@ class Swaadly(customtkinter.CTk):
         faq_btn.pack(side=LEFT, padx=5,ipadx=1,ipady=1)
         
     def Homepage(self):
+        bg_img_path=r"C:\Users\LOQ\OneDrive\Desktop\sahaj code\C-program\swaadly backround.jpg"
+        bg_img=Image.open(bg_img_path)
+        self.bg_img=ImageTk.PhotoImage(bg_img)
+        background_image=customtkinter.CTkImage(light_image=self.bg_img,size=(600,400))
+        background_image_label=customtkinter.CTkLabel(self,image=background_image,text="")
+        background_image_label.place(x=0,y=0,relwidth=1,relheight=1)
+        background_image_label.lower()
         scroll_frame=customtkinter.CTkScrollableFrame(self,border_width=1,width=600,height=400,bg_color="white",fg_color="white")
         heading_font=customtkinter.CTkFont(family="Cooper Black",weight="bold",size=27)
         heading=Label(scroll_frame,text="Real Peanut Butter",font=heading_font,background="white")
