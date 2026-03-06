@@ -220,7 +220,7 @@ def get_started():
         tk_Jackpot = ImageTk.PhotoImage(Jackpot_image)
         Jackpot_image_label = Label(start_f2, image=tk_Jackpot)
         Jackpot_image_label.image = tk_Jackpot
-        Jackpot_image_label.grid(row=2, column=2, pady=5, padx=4)
+        Jackpot_image_label.grid(row=1, column=2, pady=5, padx=4)
     except Exception as e:
         print(f"Could not load jackpot image: {e}")
     
@@ -231,7 +231,7 @@ def get_started():
         tk_Coming_soon = ImageTk.PhotoImage(Coming_soon_image)
         Coming_soon_image_label = Label(start_f2, image=tk_Coming_soon)
         Coming_soon_image_label.image = tk_Coming_soon
-        Coming_soon_image_label.grid(row=1, column=2, pady=5, padx=4)
+        Coming_soon_image_label.grid(row=2, column=2, pady=5, padx=4)
     except Exception as e:
         print(f"Could not load question mark image: {e}")
 
