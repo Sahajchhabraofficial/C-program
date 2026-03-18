@@ -1,13 +1,41 @@
 from tkinter import *
 import tkinter.messagebox as tmsg
+import csv
 
 root = Tk()
 root.geometry("600x400")
 root.title("Sign-in Startup")
 root.minsize(600, 300)
 
+def Check_email(Email):
+    Email=str(Email)
+    with open("C-program/Data.csv",mode='r',newline='') as datafile:
+        username=csv.reader(datafile,delimiter=',')
+        for name in username:
+            if Email==name[0]:
+                return True
+        else:
+            return False
+            
+
+def Check_password(Password):
+    Password=str(Password)
+    with open("C-program/Data.csv",mode='r') as datafile:
+        username=csv.reader(datafile,delimiter=',')
+        for name in username:
+            if Password==name[1]:
+                return True
+        else:
+            return False
+
 def submit():
-    tmsg.showinfo("Access Granted!","You have now permission to access the content")
+    if Check_email(Ementry):
+        if Check_password(Pasentry):
+            tmsg.showinfo("Access Granted!","You have now permission to access the content")
+        else:
+            tmsg.showerror("Access Denied!","Double check you password")
+    else:
+        tmsg.showerror("Access Denied!","You don't have permission to access content")
 
 # Main Frame
 frame = Frame(root, borderwidth=5, relief=RAISED)
@@ -39,11 +67,11 @@ E_label= Label(
 ).pack(pady=5)
 
 # E-mail Entry
-entry=Entry(
+Ementry=Entry(
     frame,
     width=40
 )
-entry.pack(pady=5)
+Ementry.pack(pady=5)
 
 # Email Label
 E_label= Label(
@@ -59,11 +87,11 @@ pass_btn=Button(
 ).pack(side=RIGHT,anchor="n",ipadx=0,ipady=0)
 
 # Password Entry
-entry=Entry(
+Pasentry=Entry(
     frame,
     width=40
 )
-entry.pack(pady=5)
+Pasentry.pack(pady=5)
 
 # Submit Button
 Submit= Button(
