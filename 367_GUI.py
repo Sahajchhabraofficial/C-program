@@ -60,4 +60,5 @@ ctk.CTkButton(master=root,corner_radius=10,
               font=image_button,
               width=120,
               ).pack(pady=5,ipady=2)
+              
 root.mainloop()

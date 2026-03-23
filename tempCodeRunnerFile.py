@@ -1,1 +1,2 @@
-root = Tk()
+
+                 placeholder_text_color="grey"
