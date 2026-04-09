@@ -1,2 +1,1 @@
-
-                 placeholder_text_color="grey"
+ width=30,
