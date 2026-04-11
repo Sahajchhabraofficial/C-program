@@ -61,9 +61,10 @@ class StreamPro(ctk.CTk):
                                 )
             image=Frame(master=Song,
                         background="#224AFF",
-                        width=100,
+                        width=100,  
                         height=97)
             image.pack(pady=8,padx=8)
+            ctk.CTkButton(image,text='🎶',font=("Seoge UI Emoji",13,"bold"),fg_color="#224AFF",hover=False,width=25 ,height=30).pack(pady=50,padx=50)
             Label(master=Song,
                   text=f"Song - {i+1}",
                   background="black",
