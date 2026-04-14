@@ -4,9 +4,10 @@ from tkinter import *
 class Market(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.geometry("600x410")
+        self.geometry("800x410")
         self.title("Super Market")
         self.minsize(600,400)
+        self.cart_count = 0
 
     # Colour pallets
     Cinder="#050408"
@@ -17,8 +18,8 @@ class Market(ctk.CTk):
 
     def BuyMenu(self):
         BuyWin=ctk.CTkToplevel()
-        BuyWin.geometry("600x400")
-        BuyWin.minsize(600,400)
+        BuyWin.geometry("400x400")
+        BuyWin.minsize(400,400)
         BuyWin.title("Proceed to Buy")
         ctk.CTkLabel(master=BuyWin,
               text="👇Your Products👇",
@@ -56,20 +57,14 @@ class Market(ctk.CTk):
         ComingSoonWin.mainloop()
     
     def Cart(self):
-        CartFrame=ctk.CTkFrame(master=self,
-                     width=137,
-                     border_color="white",
-                     border_width=1,
-                     fg_color="black")
-        CartFrame.pack(side=RIGHT,fill=Y)
         #All Functions
         def Order():
             pass
         def Cancel():
             pass
-        def close_Cart():
-            CartFrame.destroy()
-        ctk.CTkLabel(master=CartFrame,
+        # def close_Cart():
+        #     CartFrame.pack_forget()
+        '''ctk.CTkLabel(master=CartFrame,
               text="Your Cart",
               fg_color="black",
               text_color="white",
@@ -78,7 +73,8 @@ class Market(ctk.CTk):
                       text="❌",
                       font=("Seoge UI Emoji",13),
                       width=12,
-                      command=close_Cart).grid(row=1,column=2,padx=5,pady=7)
+                      command=close_Cart).grid(row=1,column=2,padx=5,pady=7)'''
+        
     def Homepage(self):
         # flag='GREEN'
         # for widget in self.winfo_children():
@@ -95,11 +91,40 @@ class Market(ctk.CTk):
         Menu_Bar.pack(side=TOP,fill=X,pady=4)
 
         Emoji=ctk.CTkFont(family="Seoge UI Emoji",size=25)
+
+        CartFrame = ctk.CTkScrollableFrame(master=self,
+                     width=137,
+                     border_color="white",
+                     border_width=1,
+                     fg_color="black",
+                     label_text="Your Products")
+        CartFrame.pack(side=RIGHT,fill=Y)
+
         def BuyNow():
             self.BuyMenu()
-        def AddtoCart():
-            pass
-        # Produts Tab
+        def AddProduct(product_name=None):
+            self.cart_count += 1
+            product_name = product_name or f"Product {self.cart_count}"
+            product_frame = ctk.CTkFrame(master=CartFrame,
+                                       fg_color=self.VooDoo,
+                                       height=90,
+                                       width=130,
+                                       corner_radius=10)
+            product_frame.pack(fill=X, padx=8, pady=4)
+
+            ctk.CTkLabel(master=product_frame,
+                         text=product_name,
+                         text_color="white",
+                         anchor='w').pack(side=LEFT, padx=(10,5), pady=12)
+            ctk.CTkButton(master=product_frame,
+                          fg_color=self.Purple_Heart,
+                          border_color="white",
+                          border_width=1,
+                          text_color="white",
+                          text="❌",
+                          width=70,
+                          command=product_frame.destroy).pack(side=RIGHT, padx=10, pady=12)
+       # Produts Tab
         ctk.CTkButton(master=Menu_Bar,
                      text="Products",
                      fg_color=self.Amethyst,
@@ -112,13 +137,13 @@ class Market(ctk.CTk):
                      hover_color=self.Purple_Heart,
                      command=self.ComingSoon).pack(side=LEFT,padx=7)
         #Your Cart
-        ctk.CTkButton(master=Menu_Bar,
+        '''ctk.CTkButton(master=Menu_Bar,
                      text="🛒",
                      font=Emoji,
                      fg_color=self.Amethyst,
                      hover_color=self.Purple_Heart,
                      width=30,
-                     command=self.Cart).pack(side=LEFT,padx=(232,0))
+                     command=self.Cart).pack(side=LEFT,padx=(232,0))'''
         
         # Products Page
         Products_Page = ctk.CTkScrollableFrame(master=self,
@@ -142,14 +167,14 @@ class Market(ctk.CTk):
                           border_width=1,
                           text_color="white",
                           text="Add To Cart",
-                          command=AddtoCart).pack(pady=(5))
+                          command=lambda: AddProduct()).pack(pady=(5),padx=5)
             ctk.CTkButton(master=Product_line_1,
                           fg_color=self.Purple_Heart,
                           border_color="white",
                           border_width=1,
                           text_color="white",
                           text="Buy Now",
-                          command=BuyNow).pack(pady=(5))
+                          command=BuyNow).pack(pady=(5),padx=5)
             #products line 2
             Product_line_2 = ctk.CTkFrame(master=Products_Page,
                          fg_color=self.VooDoo,
@@ -165,14 +190,14 @@ class Market(ctk.CTk):
                           border_width=1,
                           text_color="white",
                           text="Add To Cart",
-                          command=AddtoCart).pack(pady=(5))
+                          command=lambda: AddProduct()).pack(pady=(5),padx=5)
             ctk.CTkButton(master=Product_line_2,
                           fg_color=self.Purple_Heart,
                           border_color="white",
                           border_width=1,
                           text_color="white",
                           text="Buy Now",
-                          command=BuyNow).pack(pady=(5))
+                          command=BuyNow).pack(pady=(5),padx=5)
             #Products Line 3
             Product_line_3 = ctk.CTkFrame(master=Products_Page,
                          fg_color=self.VooDoo,
@@ -188,14 +213,14 @@ class Market(ctk.CTk):
                           border_width=1,
                           text_color="white",
                           text="Add To Cart",
-                          command=AddtoCart).pack(pady=(5))
+                          command=lambda: AddProduct()).pack(pady=(5),padx=5)
             ctk.CTkButton(master=Product_line_3,
                           fg_color=self.Purple_Heart,
                           border_color="white",
                           border_width=1,
                           text_color="white",
                           text="Buy Now",
-                          command=BuyNow).pack(pady=(5))
+                          command=BuyNow).pack(pady=(5),padx=5)
             #Products line 4
             Product_line_4 = ctk.CTkFrame(master=Products_Page,
                          fg_color=self.VooDoo,
@@ -211,14 +236,14 @@ class Market(ctk.CTk):
                           border_width=1,
                           text_color="white",
                           text="Add To Cart",
-                          command=AddtoCart).pack(pady=(5))
+                          command=lambda: AddProduct()).pack(pady=(5),padx=5)
             ctk.CTkButton(master=Product_line_4,
                           fg_color=self.Purple_Heart,
                           border_color="white",
                           border_width=1,
                           text_color="white",
                           text="Buy Now",
-                          command=BuyNow).pack(pady=(5))
+                          command=BuyNow).pack(pady=(5),padx=5)
 
         """ ctk.CTkButton(master=Products_Page,
                       text="Buy Now",
