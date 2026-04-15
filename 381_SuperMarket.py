@@ -110,7 +110,7 @@ class Market(ctk.CTk):
                                        height=90,
                                        width=130,
                                        corner_radius=10)
-            product_frame.pack(fill=X, padx=8, pady=4)
+            product_frame.grid(row=1,column=self.cart_count, padx=8, pady=4)
 
             ctk.CTkLabel(master=product_frame,
                          text=product_name,
@@ -244,12 +244,13 @@ class Market(ctk.CTk):
                           text_color="white",
                           text="Buy Now",
                           command=BuyNow).pack(pady=(5),padx=5)
+            
 
-        """ ctk.CTkButton(master=Products_Page,
+        ctk.CTkButton(master=CartFrame,
                       text="Buy Now",
                       fg_color="#1f6aa5",
                       text_color="white",
-                      width=120).grid(row=1,column=0,columnspan=4,pady=15)"""
+                      width=120).grid(row=1,column=0,columnspan=4,pady=15)
 
 if __name__== "__main__":
     App=Market()

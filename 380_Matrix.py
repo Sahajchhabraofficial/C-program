@@ -6,20 +6,30 @@ class Matrix:
         """"This method returns True or False on the basis of
           the given object """
         if all(isinstance(x, (int, str)) for x in self.elements):
+            gaps=0
             for element in self.elements:
-                gaps=0
-                if element!='/n':
-                    gaps+=1
+                if element=='/n':
+                    if self.elements.index(element)!=0:
+                        break
+                    else:
+                        return False
+                gaps+=1
+                print(gaps)
+                newstr=''
+            for i in range(0,len(self.elements),gaps):
+                if i=='/n':
+                    newstr+='Y'
+                else:
+                    newstr+='N'
+                    break
+            print(newstr)
+            if 'n' not in newstr.lower():
                 return True
-            for i in range(len(0,len(self.elements),gaps)):
-                count=0
-                if self.elements[i]=='/n':
-                    count+=1
-            #improve the logic...
-
+            else:
+                return False
         else:
             return False
-        
+        # Almost done improve the logic
 
     def Order(self):
         """This method returns the order of the matrix in a form of a string and
@@ -41,6 +51,6 @@ class Matrix:
            return None
                 
 
-matrix1 = Matrix([29,23,'/n',23,53,'/n',34,64,'/n'])
-order=matrix1.Order()
+matrix1 = Matrix([29,23,'/n',23,53,34,64,'/n'])
+order=matrix1.isMatrix()
 print("Order of the matrix is: ",order)
