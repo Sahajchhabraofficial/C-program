@@ -4,7 +4,7 @@ class Matrix:
 
     def isMatrix(self):
         """"This method returns True or False on the basis of
-          the given object """
+          the given object"""
         if all(isinstance(x, (int, str)) for x in self.elements):
             gaps=0
             for element in self.elements:
@@ -14,7 +14,7 @@ class Matrix:
                     else:
                         return False
                 gaps+=1
-                print(gaps)
+                # print(gaps)
                 newstr=''
             for i in range(0,len(self.elements),gaps):
                 if i=='/n':
@@ -23,7 +23,7 @@ class Matrix:
                     newstr+='N'
                     break
             print(newstr)
-            if 'n' not in newstr.lower():
+            if 'N' not in newstr:
                 return True
             else:
                 return False
@@ -51,6 +51,7 @@ class Matrix:
            return None
                 
 
-matrix1 = Matrix([29,23,'/n',23,53,34,64,'/n'])
-order=matrix1.isMatrix()
+matrix1 = Matrix([29,23,'/n',23,53,'/n',34,64,'/n'])
+order=matrix1.Order()
+print(matrix1.isMatrix())
 print("Order of the matrix is: ",order)
