@@ -143,17 +143,34 @@ class Matrix:
         return rows == cols
 
     def isDiagonal(self):
-        pass
+        """Returns True if the given matrix has the elements in a diagonal form
+            but it should be a square matrix first"""
+        if not self.isMatrix() or not self.isSquare():
+            return False
+
+        rows = self._parse_rows()
+        n = len(rows)
+
+        # Check if all non-diagonal elements are 0
+        for i in range(n):
+            for j in range(n):
+                if i != j:  # Non-diagonal elements
+                    if rows[i][j] != 0:
+                        return False
+
+        return True
 
 matrix1 = Matrix([29,23,'/n',23,53,'/n',34,64,'/n'])
 matrix2 = Matrix([0,0,0,'/n',0,0,0,'/n',0,0,0,'/n'])
 matrix3 = Matrix([12,'/n',13,'/n',14,'/n'])
 matrix4 = Matrix([12,10,9,8,'/n'])
 matrix5 = Matrix([0,0,'/n',0,0,'/n'])
+matrix6 = Matrix([21,0,0,'/n',0,22,0,'/n',0,0,23])
 # order=matrix1.Order()
 print('matrix1 isMatrix ->', matrix1.isMatrix(), 'isColumn ->', matrix1.isColumn())
 print('matrix2 isMatrix ->', matrix2.isMatrix(), 'isColumn ->', matrix2.isColumn())
 print('matrix3 isMatrix ->', matrix3.isMatrix(), 'isColumn ->', matrix3.isColumn())
 print(matrix4.isRow())
 print(matrix5.isSquare())
+print(matrix6.isDiagonal())
 # print("Order of the matrix is: ",order)
