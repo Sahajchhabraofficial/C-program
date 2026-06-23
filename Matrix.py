@@ -1,5 +1,5 @@
 class Matrix:
-    def __init__(self,lst):
+    def __init__(self,lst=[]):
         self.elements=lst
 
     def isMatrix(self):
@@ -167,10 +167,10 @@ matrix4 = Matrix([12,10,9,8,'/n'])
 matrix5 = Matrix([0,0,'/n',0,0,'/n'])
 matrix6 = Matrix([21,0,0,'/n',0,22,0,'/n',0,0,23])
 # order=matrix1.Order()
-print('matrix1 isMatrix ->', matrix1.isMatrix(), 'isColumn ->', matrix1.isColumn())
-print('matrix2 isMatrix ->', matrix2.isMatrix(), 'isColumn ->', matrix2.isColumn())
-print('matrix3 isMatrix ->', matrix3.isMatrix(), 'isColumn ->', matrix3.isColumn())
-print(matrix4.isRow())
-print(matrix5.isSquare())
-print(matrix6.isDiagonal())
+# print('matrix1 isMatrix ->', matrix1.isMatrix(), 'isColumn ->', matrix1.isColumn())
+# print('matrix2 isMatrix ->', matrix2.isMatrix(), 'isColumn ->', matrix2.isColumn())
+# print('matrix3 isMatrix ->', matrix3.isMatrix(), 'isColumn ->', matrix3.isColumn())
+# print(matrix4.isRow())
+# print(matrix5.isSquare())
+# print(matrix6.isDiagonal())
 # print("Order of the matrix is: ",order)
